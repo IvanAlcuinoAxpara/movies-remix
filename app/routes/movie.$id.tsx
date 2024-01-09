@@ -7,7 +7,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
       {
         headers: {
           accept: "application/json",
-          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyYzYxNTA0NzVlYTk4NjZmMTEyNDNlM2NjNGQ1NzAzYyIsInN1YiI6IjY1OWJiM2NlMGQxMWYyM2NiY2U5MjdhNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.b1kqcjDLPmQajhfJd82suDfxyMgOtKzZhK8PXqwMiyE'
+          Authorization: 'Bearer ' + process.env.MOVIES_DB_TOKEN
         },
       }
     );
@@ -17,9 +17,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
   
   export default function MovieId() {
     const data = useLoaderData();
-  
-    console.log(data);
-  
+    
     return (
       <div className="min-h-screen p-10">
         <img

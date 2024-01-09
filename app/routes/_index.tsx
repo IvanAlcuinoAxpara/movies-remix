@@ -14,16 +14,15 @@ export async function loader({}: LoaderFunctionArgs) {
   {
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyYzYxNTA0NzVlYTk4NjZmMTEyNDNlM2NjNGQ1NzAzYyIsInN1YiI6IjY1OWJiM2NlMGQxMWYyM2NiY2U5MjdhNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.b1kqcjDLPmQajhfJd82suDfxyMgOtKzZhK8PXqwMiyE'
+      Authorization: 'Bearer ' + process.env.MOVIES_DB_TOKEN
     }
   });
-  console.log('running here')
+  
   return json(await url.json());
 }
 
 export default function Index() {
   const data = useLoaderData();
-  console.log('data: ', data)
 
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-12">
